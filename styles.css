@@ -1,0 +1,79 @@
+html {
+    background: url('https://picsum.photos/id/1025/1000/667') top center;
+    background-size: cover;
+    min-height: 100vh;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+h1 {
+    text-align: center;
+    color: white;
+}
+
+h2 {
+    text-transform: uppercase;
+}
+
+#container {
+    width: 50vw;
+    background-color: rgba(255,255,255,0.6);
+    padding: 1rem;
+    margin: 6rem auto;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    box-shadow: 0 0 1rem #666;
+    text-align: center;
+}
+
+#status, #stats, #controls, #restart {
+    width: 80%;
+    margin: 2vh auto;
+}
+
+#stats {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#status > p {
+    font-size: 200%;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: darkgoldenrod;
+    background-color: rgba(0,0,0,0.7);
+    padding: 1rem 0;
+}
+
+#stats table {
+    background-color: rgba(0,0,0,0.7);
+    padding: 1rem;
+    width: 80%;
+}
+
+#stats th, #stats td {
+    width: 30%;
+    padding: 0 2%;
+}
+
+#stats th {
+    font-size: 150%;
+    color: lightgray;
+    font-weight: 200;
+    text-transform: uppercase;
+
+}
+
+#stats td {
+    font-size: 200%;
+    color: darkgoldenrod;
+    font-weight: 700;
+    padding: 1rem;
+}
+
+.btn {
+    font-size: 150%;
+    margin: 0 1rem;
+}
