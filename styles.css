@@ -76,4 +76,5 @@ h2 {
 .btn {
     font-size: 150%;
     margin: 0 1rem;
+    cursor: pointer;
 }

@@ -28,7 +28,7 @@ const DEATH_TRIGGER = {
     age: 30 // age of 30 or more
 }
 
-const DEAD_PARROT_MSG = "is sadly pushing up the daisies :(";
+const DEAD_PARROT_MSG = "R.I.P.";
 
 
 function Pet(name="Your pet") {
@@ -72,7 +72,7 @@ Pet.prototype.feed = function() {
 }
 
 Pet.prototype.checkUp = function() {
-    if (!this.isAlive) return `${this.name} ${DEAD_PARROT_MSG}`
+    if (!this.isAlive) return `${DEAD_PARROT_MSG}`
     if (this.fitness < WALK_TRIGGER && this.hunger > FEED_TRIGGER) {
         return "I am hungry AND I need a walk";
     } else if (this.fitness < WALK_TRIGGER) {
@@ -95,6 +95,7 @@ const status = document.querySelector('#status > p');
 const age = document.querySelector('#age');
 const fitness = document.querySelector('#fitness');
 const hunger = document.querySelector('#hunger');
+const controls = document.querySelector('#controls');
 
 status.innerText = p.checkUp();
 age.innerText = p.age;
@@ -102,7 +103,10 @@ fitness.innerText = p.fitness;
 hunger.innerText = p.hunger;
 
 function petLife(e) {
-    if (e.target.name === 'restart') p = new Pet();
+    if (e.target.name === 'restart') {
+        p = new Pet();
+        controls.style.display = 'block';
+    }
     if (e.target.name === 'growUp') p.growUp();
     if (e.target.name === 'feed') p.feed();
     if (e.target.name === 'walk') p.walk();
@@ -110,6 +114,7 @@ function petLife(e) {
     age.innerText = p.age;
     fitness.innerText = p.fitness;
     hunger.innerText = p.hunger;
+    if (!p.isAlive) controls.style.display = 'none';
 }
 
 const buttons = document.querySelectorAll(".btn");
