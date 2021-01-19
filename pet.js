@@ -98,9 +98,12 @@ const hunger = document.querySelector('#hunger');
 const controls = document.querySelector('#controls');
 
 status.innerText = p.checkUp();
-age.innerText = p.age;
-fitness.innerText = p.fitness;
-hunger.innerText = p.hunger;
+ageWidth = p.age / (DEATH_TRIGGER.age - 0) * 100;
+age.style.width = `${ageWidth}%`;
+fitnessWidth = p.fitness / (MAXIMUM_FITNESS - DEATH_TRIGGER.fitness) * 100;
+fitness.style.width = `${fitnessWidth}%`;
+hungerWidth = p.hunger / (DEATH_TRIGGER.hunger - MINIMUM_HUNGER) * 100;
+hunger.style.width = `${hungerWidth}%`;
 
 function petLife(e) {
     if (e.target.name === 'restart') {
@@ -111,9 +114,14 @@ function petLife(e) {
     if (e.target.name === 'feed') p.feed();
     if (e.target.name === 'walk') p.walk();
     status.innerText = p.checkUp();
-    age.innerText = p.age;
-    fitness.innerText = p.fitness;
-    hunger.innerText = p.hunger;
+    ageWidth = p.age / (DEATH_TRIGGER.age - 0) * 100;
+    age.style.width = `${ageWidth}%`;
+    fitnessWidth = p.fitness / (MAXIMUM_FITNESS - DEATH_TRIGGER.fitness) * 100;
+    if (fitnessWidth < 0) fitnessWidth = 0;
+    fitness.style.width = `${fitnessWidth}%`;
+    hungerWidth = p.hunger / (DEATH_TRIGGER.hunger - MINIMUM_HUNGER) * 100;
+    if (hungerWidth > 100) hungerWidth = 100;
+    hunger.style.width = `${hungerWidth}%`;
     if (!p.isAlive) controls.style.display = 'none';
 }
 
