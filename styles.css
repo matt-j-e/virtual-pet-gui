@@ -16,6 +16,7 @@ h2 {
 
 #container {
     width: 50vw;
+    max-width: 600px;
     background-color: rgba(255,255,255,0.6);
     padding: 1rem;
     margin: 6rem auto;
@@ -39,8 +40,8 @@ h2 {
 }
 
 #status > p {
-    font-size: 150%;
-    font-weight: 700;
+    font-size: 140%;
+    /* font-weight: 700; */
     text-transform: uppercase;
     color: rgb(184, 134, 11);
     background-color: rgba(0,0,0,0.7);
@@ -87,7 +88,7 @@ h2 {
       font-weight: 400;
       line-height: 4vh;
       text-transform: uppercase;
-      text-shadow: 1px 1px 0 rgba(0,0,0,0.5);
+      text-shadow: 1px 1px 0 rgba(0,0,0,1);
       color: rgb(170, 170, 170);
       margin: 0;
   }
@@ -100,7 +101,7 @@ h2 {
   .outer .value {
     position: absolute;
     right: 1rem;
-    font-weight: 700;
+    /* font-weight: 700; */
   }
 
 .inner {
