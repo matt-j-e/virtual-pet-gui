@@ -92,18 +92,29 @@ Pet.prototype.haveBaby = function(name) {
 let p = new Pet();
 console.log(p)
 const status = document.querySelector('#status > p');
+// grab the slider elements
 const age = document.querySelector('#age');
 const fitness = document.querySelector('#fitness');
 const hunger = document.querySelector('#hunger');
+// grab the stat value elements
+const ageVal = document.querySelector('#ageVal');
+const fitnessVal = document.querySelector('#fitnessVal');
+const hungerVal = document.querySelector('#hungerVal');
+// grab the button elements
 const controls = document.querySelector('#controls');
 
-status.innerText = p.checkUp();
+// set slider start positions
 ageWidth = p.age / (DEATH_TRIGGER.age - 0) * 100;
 age.style.width = `${ageWidth}%`;
 fitnessWidth = p.fitness / (MAXIMUM_FITNESS - DEATH_TRIGGER.fitness) * 100;
 fitness.style.width = `${fitnessWidth}%`;
 hungerWidth = p.hunger / (DEATH_TRIGGER.hunger - MINIMUM_HUNGER) * 100;
 hunger.style.width = `${hungerWidth}%`;
+// set status & stats start values
+status.innerText = p.checkUp();
+ageVal.innerText = p.age;
+fitnessVal.innerText = p.fitness;
+hungerVal.innerText = p.hunger;
 
 function petLife(e) {
     if (e.target.name === 'restart') {
@@ -114,6 +125,8 @@ function petLife(e) {
     if (e.target.name === 'feed') p.feed();
     if (e.target.name === 'walk') p.walk();
     status.innerText = p.checkUp();
+
+    // amend slider settings
     ageWidth = p.age / (DEATH_TRIGGER.age - 0) * 100;
     age.style.width = `${ageWidth}%`;
     fitnessWidth = p.fitness / (MAXIMUM_FITNESS - DEATH_TRIGGER.fitness) * 100;
@@ -122,6 +135,12 @@ function petLife(e) {
     hungerWidth = p.hunger / (DEATH_TRIGGER.hunger - MINIMUM_HUNGER) * 100;
     if (hungerWidth > 100) hungerWidth = 100;
     hunger.style.width = `${hungerWidth}%`;
+
+    // amend stat values
+    ageVal.innerText = p.age;
+    fitnessVal.innerText = p.fitness;
+    hungerVal.innerText = p.hunger;
+
     if (!p.isAlive) controls.style.display = 'none';
 }
 
